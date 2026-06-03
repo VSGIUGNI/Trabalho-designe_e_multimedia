@@ -197,6 +197,7 @@ nav {
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     scrollbar-width: none; /* Firefox */
+    position: relative;
 }
 
 #horizontal-container::-webkit-scrollbar {
@@ -342,6 +343,63 @@ p {
 p strong {
     color: #ff8c30;
     font-weight: 700;
+}
+
+/* --- Camada de lava --- */
+
+/* Brilho de calor: gradiente laranja que pulsa acima da lava */
+#lava-glow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 600vw;
+    height: 200px;
+    background: linear-gradient(to top,
+        rgba(210, 60, 0, 0.55) 0%,
+        rgba(190, 40, 0, 0.22) 40%,
+        transparent 75%
+    );
+    mix-blend-mode: screen;
+    pointer-events: none;
+    z-index: 1;
+    transform-origin: bottom center;
+    animation: lavaGlow 3.5s ease-in-out infinite alternate;
+}
+
+/* Lava: multiply apaga o branco da imagem, funde com o fundo */
+#lava-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 600vw;
+    height: 110px;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2;
+    mix-blend-mode: multiply;
+}
+
+#lava-layer img {
+    position: absolute;
+    bottom: 0;
+    left: -1%;       /* margem para a lava não cortar nas bordas */
+    width: 102%;     /* 2% extra cobre o deslocamento lateral */
+    height: auto;
+    animation: lavaFlow 4s ease-in-out infinite alternate;
+}
+
+/* Fluxo lateral: esquerda → direita com alternate (vai e volta suavemente) */
+@keyframes lavaFlow {
+    0%   { transform: translateX(0px);   filter: brightness(1.00); }
+    35%  { transform: translateX(-25px); filter: brightness(1.08); }
+    65%  { transform: translateX(-48px); filter: brightness(1.15); }
+    100% { transform: translateX(-65px); filter: brightness(1.10); }
+}
+
+/* Pulso de calor em sincronia com o movimento */
+@keyframes lavaGlow {
+    from { opacity: 0.45; transform: scaleY(0.85); }
+    to   { opacity: 1.00; transform: scaleY(1.15); }
 }
 
 /* --- Rodapé --- */
@@ -503,5 +561,10 @@ footer {
         position: relative;
         height: auto;
         padding: 16px 0;
+    }
+
+    #lava-glow,
+    #lava-layer {
+        display: none;
     }
 }
