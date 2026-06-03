@@ -563,8 +563,22 @@ footer {
         padding: 16px 0;
     }
 
-    #lava-glow,
+    #lava-glow {
+        position: fixed;
+        width: 100vw;
+        height: 100px;
+    }
+
     #lava-layer {
-        display: none;
+        position: fixed;
+        width: 100vw;
+        height: 55px;
+    }
+
+    /* Escala pela altura para manter a lava visível em ecrãs estreitos */
+    #lava-layer img {
+        height: 55px;
+        width: auto;
+        left: 0;
     }
 }
