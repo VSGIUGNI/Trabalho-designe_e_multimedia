@@ -785,18 +785,51 @@ footer {
     background: rgba(0, 0, 0, 0.1);
 }
 
-.form-sucesso-msg {
+.popup-enviado-overlay {
     display: none;
-    color: #fff;
-    font-size: 1.4rem;
-    font-weight: 700;
-    text-align: center;
-    margin-top: 2rem;
-    letter-spacing: 0.05em;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
 }
 
-.form-sucesso-msg.visivel {
-    display: block;
+.popup-enviado-overlay.visivel {
+    display: flex;
+}
+
+.popup-enviado-caixa {
+    background: #1a0800;
+    border: 1px solid rgba(255, 140, 48, 0.6);
+    border-radius: 14px;
+    padding: 2.5rem 3.5rem;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 0 40px rgba(255, 100, 0, 0.3);
+}
+
+.popup-enviado-caixa p {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 1.5rem;
+    letter-spacing: 0.04em;
+}
+
+.popup-enviado-fechar {
+    background: rgba(255, 140, 48, 0.85);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.55rem 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.popup-enviado-fechar:hover {
+    background: rgba(255, 140, 48, 1);
 }
 
 /* --- MEDIA QUERY (Mobile) --- */

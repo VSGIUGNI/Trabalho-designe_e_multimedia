@@ -239,9 +239,16 @@
                     <textarea           id="mensagem" name="mensagem" placeholder="Mensagem..."></textarea>
                     <button type="submit" class="btn-enviar">Enviar</button>
                 </form>
-                <p id="form-sucesso" class="form-sucesso-msg" aria-live="polite">Mensagem enviada!</p>
             </div>
         </section>
+
+        <!-- Popup de confirmação de envio -->
+        <div id="popup-enviado" class="popup-enviado-overlay" role="dialog" aria-modal="true" aria-label="Mensagem enviada">
+            <div class="popup-enviado-caixa">
+                <p>Mensagem enviada!</p>
+                <button class="popup-enviado-fechar">OK</button>
+            </div>
+        </div>
 
     </main>
 

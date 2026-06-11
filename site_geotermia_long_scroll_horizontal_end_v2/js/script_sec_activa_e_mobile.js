@@ -157,14 +157,19 @@
     if (secUtilizacao) secUtilizacao.addEventListener('click', fecharTodosUtilizacaoPopups);
 
     // --- Formulário de Contactos ---
-    const formContactos = document.querySelector('.form-contactos');
-    const formSucesso   = document.getElementById('form-sucesso');
+    const formContactos    = document.querySelector('.form-contactos');
+    const popupEnviado     = document.getElementById('popup-enviado');
+    const btnFecharEnviado = document.querySelector('.popup-enviado-fechar');
 
-    if (formContactos) {
+    if (formContactos && popupEnviado) {
         formContactos.addEventListener('submit', function(e) {
             e.preventDefault();
-            formContactos.style.display = 'none';
-            formSucesso.classList.add('visivel');
+            popupEnviado.classList.add('visivel');
+        });
+
+        btnFecharEnviado.addEventListener('click', function() {
+            popupEnviado.classList.remove('visivel');
+            formContactos.reset();
         });
     }
 
