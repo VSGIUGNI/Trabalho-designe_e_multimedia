@@ -156,3 +156,15 @@
     const secUtilizacao = document.getElementById('vantagensSection');
     if (secUtilizacao) secUtilizacao.addEventListener('click', fecharTodosUtilizacaoPopups);
 
+    // --- Formulário de Contactos ---
+    const formContactos = document.querySelector('.form-contactos');
+    const formSucesso   = document.getElementById('form-sucesso');
+
+    if (formContactos) {
+        formContactos.addEventListener('submit', function(e) {
+            e.preventDefault();
+            formContactos.style.display = 'none';
+            formSucesso.classList.add('visivel');
+        });
+    }
+
